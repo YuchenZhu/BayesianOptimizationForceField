@@ -1,0 +1,71 @@
+################################################### 
+# TITLE
+#################### SETTING UP ####################
+ 
+units real 
+dimension 3
+newton on
+boundary p p p
+atom_style full
+ 
+# read configurations
+read_data in.lammpsdata
+include in.forcefield
+
+# nbr list
+neighbor 2.0 bin
+neigh_modify every 1 delay 0 check yes
+
+run_style verlet
+
+# settings for log file
+thermo_style custom step density temp press pe ke etotal
+thermo 10000
+
+# compute the rdf
+compute myRDF all rdf 1000 3 1 3 4
+
+# settings for dump file (trajectories)
+dump trj all custom 1000 out.lammpstrj id type xu yu zu
+dump_modify trj sort 1
+dump_modify trj append yes
+dump_modify trj format line "%8d %5d %.3f %.3f %.3f"
+
+#################### INITIALIZATION ####################
+
+print ""
+print "Minimization"
+print ""
+
+# initialize the system.
+# 1: minimization gets rid of overlaps between atoms
+# 2: ramping up the time step avoids excessive forces
+
+# for convenience lets define some variables
+variable Temp equal 298 # temperature in Kelvin
+variable Ninit equal 1000 # number of time steps (time step units, not time units)
+
+min_style cg
+min_modify dmax 0.05
+minimize 1.0e-2 1.0e-2 100000 1000000
+reset_timestep 0
+
+print ""
+print "INITIALIZATION"
+print ""
+
+# constrain the bond lengths and angles of H2O molecules
+fix 0 all shake 1.0e-6 1000 0 b 1 a 1
+
+
+timestep 1.0
+fix 1 all npt temp ${Temp} ${Temp} $(100*dt) iso 1.0 1.0 $(1000*dt)
+run 100000
+
+timestep 2.0
+unfix 1
+fix 1 all nvt temp ${Temp} ${Temp} $(100*dt)
+fix 2 all ave/time 1 249999 500000 c_myRDF[*] file NaO.rdf mode vector
+run 500000 # 1n ps
+
+quit

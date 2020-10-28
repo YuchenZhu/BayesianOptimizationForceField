@@ -1,0 +1,74 @@
+################################################### 
+# TITLE
+#################### SETTING UP ####################
+ 
+units real 
+dimension 3
+newton on
+boundary p p p
+atom_style full
+ 
+# read configurations
+read_data in.lammpsdata
+include in.forcefield
+
+# nbr list
+neighbor 2.0 bin
+neigh_modify every 1 delay 0 check yes
+
+run_style verlet
+
+# settings for log file
+thermo_style custom step density temp press pe ke etotal
+thermo 5000
+
+# set group sytle
+group 1 type 3
+compute positions all position
+fix fix1 all ordern diffusivity 10 50 c_positions nbe 15
+
+# settings for dump file (trajectories)
+dump trj all custom 50 out.lammpstrj id type xu yu zu # 0.1ps per frame
+dump_modify trj sort 1
+dump_modify trj append yes
+dump_modify trj format line "%8d %5d %.3f %.3f %.3f"
+
+#################### INITIALIZATION ####################
+
+print ""
+print "Minimization"
+print ""
+
+# initialize the system.
+# 1: minimization gets rid of overlaps between atoms
+# 2: ramping up the time step avoids excessive forces
+
+# for convenience lets define some variables
+variable Temp equal 298 # temperature in Kelvin
+variable Ninit equal 1000 # number of time steps (time step units, not time units)
+
+min_style cg
+min_modify dmax 0.05
+minimize 1.0e-2 1.0e-2 100000 1000000
+reset_timestep 0
+
+print ""
+print "INITIALIZATION"
+print ""
+
+# constrain the bond lengths and angles of H2O molecules
+fix 0 all shake 1.0e-6 1000 0 b 1 a 1
+
+# 5000 steps equilibrium 
+timestep 1.0
+fix 1 all npt temp ${Temp} ${Temp} $(100*dt) iso 1.0 1.0 $(1000*dt)
+run 50000 #100ps
+
+# ?500k steps production
+timestep 2 # 2fs
+unfix 1
+fix 1 all nvt temp ${Temp} ${Temp} $(100*dt)
+# production run
+run 5000000 # 10ns
+
+quit

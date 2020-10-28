@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# set the number of nodes
+#SBATCH -N 1
+#SBATCH -n 28
+
+# set max wallclock time
+#SBATCH -t 24:00:00
+
+# set memory requirement
+#SBATCH --mem=64000
+
+# set name of job
+#SBATCH --job-name=2005_rio_right
+
+# mail alert at start, end and abortion of execution
+#SBATCH --mail-type=ALL
+
+# send mail to this address
+#SBATCH --mail-user=zhuyuchen117@outlook.com
+
+# run the application
+
+
