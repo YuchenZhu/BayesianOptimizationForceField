@@ -10,7 +10,7 @@ The contributions of this project are:
 - Train a Bayesian optimization model with normalized data, applied the same model for different ionic properties and ion species. 
 - Perform ionic force field search with less human labor involved. 
 - Balance the trade-offs between different ionic properties.
-- Simultaneously optimize multiple ion species, avoid the misbalanced situation which can be found in the previous studies.
+- Simultaneously optimize multiple ion species ionic properties, avoid the misbalanced situation which can be found in the previous studies.
 # Main steps
 ### Normalize parameter space, resulting in smooth contour plot.
 ### Train a Bayesian Optimization model, kernel function, balance parameters, normalize data, extend to different species, and ionic properties.
