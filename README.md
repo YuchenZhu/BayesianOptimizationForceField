@@ -1,7 +1,10 @@
 # BayesianOptimizationForceField
 This project is my thesis of "Optimize ionic force field with bayesian optimization" at TUDelft. The aim of this research it to optimize ion force field parameters with a probablistic machine learning technique called bayesian optimization. This modle use gaussian process to model the unknown region in the parameter space and use acquisition function to guide the search. Previous work carried the parameter search mainly based on brute force method which are usually time comsuing. The advantage of this method is that it allows researcher to carry out parameters search without human interaction, thus the tieous force field optimization process can be speeded up. 
 The considered ionic properties are:
-- Item 1
+- Solvation free energy of single ion (thermodaynamics integration)
+- Size of first hydration shell (ion and oxygen distance)
+- Diffusivity 
+- Solubility (via contact ion pairs)
 
 ## 1. Normalize parameter space, resulting smooth contour plot.
 ## 2. Train a Bayesian Optimization model, kernel function, balance parameters, normalize data, extend to different species and ionic properties.
