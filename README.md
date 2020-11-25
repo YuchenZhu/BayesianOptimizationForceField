@@ -11,5 +11,4 @@ Optimize ionic force field with bayesian optimization, search the most appropria
 # 4. Find the optimum regions of primary targets: solvation free energy and ion oxygen distances.
 ![Image text](https://raw.githubusercontent.com/YuchenZhu/BayesianOptimizationForceField/main/img/primaryTgs.png)
 # 5. Compute the secondary targets: diffusivity, ion pairing
-
-
+![Image text](https://raw.githubusercontent.com/YuchenZhu/BayesianOptimizationForceField/main/img/ionPairs.png)
