@@ -4,7 +4,7 @@ The considered ionic properties are:
 - Solvation free energy of single ion (thermodynamic integration)
 - Size of first hydration shell (ion and oxygen distance)
 - Diffusivity 
-- Solubility (via contact ion pairs)
+- Solubility limit (via contact ion pairs)
 
 The contributions of this project are:
 - Train a Bayesian optimization model with normalized data, applied the same model for different ionic properties and ion species. 
@@ -22,3 +22,4 @@ The contributions of this project are:
 ![Image text](https://raw.githubusercontent.com/YuchenZhu/BayesianOptimizationForceField/main/img/primaryTgs.png)
 ### Compute the secondary targets: diffusivity, ion pairing
 ![Image text](https://raw.githubusercontent.com/YuchenZhu/BayesianOptimizationForceField/main/img/ionPairs.png)
+![Image text](https://raw.githubusercontent.com/YuchenZhu/BayesianOptimizationForceField/main/img/cipRes.png)
