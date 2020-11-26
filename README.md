@@ -15,20 +15,20 @@ The contributions of this project are:
 ### Normalize parameter space, resulting in smooth contour plot.
 ### Train a Bayesian Optimization model, kernel function, balance parameters, normalize data, extend to different species, and ionic properties.
 ![Image text](https://raw.githubusercontent.com/YuchenZhu/BayesianOptimizationForceField/main/img/obs.png)
-<img src="https://raw.githubusercontent.com/YuchenZhu/BayesianOptimizationForceField/main/img/obs.png" width=800>
+<img src="https://raw.githubusercontent.com/YuchenZhu/BayesianOptimizationForceField/main/img/obs.png" width=500>
 ![Image text](https://raw.githubusercontent.com/YuchenZhu/BayesianOptimizationForceField/main/img/convergence.png)
-<img src="https://raw.githubusercontent.com/YuchenZhu/BayesianOptimizationForceField/main/img/convergence.png" width=800>
+<img src="https://raw.githubusercontent.com/YuchenZhu/BayesianOptimizationForceField/main/img/convergence.png" width=500>
 
 ### MD simulations to compute the target properties.
 ![Image text](https://raw.githubusercontent.com/YuchenZhu/BayesianOptimizationForceField/main/img/properties.png)
-<img src="https://raw.githubusercontent.com/YuchenZhu/BayesianOptimizationForceField/main/img/properties.png" width=800>
+<img src="https://raw.githubusercontent.com/YuchenZhu/BayesianOptimizationForceField/main/img/properties.png" width=500>
 
 ### Find the optimum regions of primary targets: solvation free energy and ion oxygen distances.
 ![Image text](https://raw.githubusercontent.com/YuchenZhu/BayesianOptimizationForceField/main/img/primaryTgs.png)
-<img src="https://raw.githubusercontent.com/YuchenZhu/BayesianOptimizationForceField/main/img/primaryTgs.png" width=800>
+<img src="https://raw.githubusercontent.com/YuchenZhu/BayesianOptimizationForceField/main/img/primaryTgs.png" width=500>
 
 ### Compute the secondary targets: diffusivity, ion pairing
 ![Image text](https://raw.githubusercontent.com/YuchenZhu/BayesianOptimizationForceField/main/img/ionPairs.png)
-<img src="https://raw.githubusercontent.com/YuchenZhu/BayesianOptimizationForceField/main/img/ionPairs.png" width=800>
+<img src="https://raw.githubusercontent.com/YuchenZhu/BayesianOptimizationForceField/main/img/ionPairs.png" width=500>
 ![Image text](https://raw.githubusercontent.com/YuchenZhu/BayesianOptimizationForceField/main/img/cipRes.png)
-<img src="https://raw.githubusercontent.com/YuchenZhu/BayesianOptimizationForceField/main/img/cipRes.png" width=800>
+<img src="https://raw.githubusercontent.com/YuchenZhu/BayesianOptimizationForceField/main/img/cipRes.png" width=500>
